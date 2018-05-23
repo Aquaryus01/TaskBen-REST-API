@@ -34,6 +34,8 @@ app.post('/register', (req, res) => {
         {
           res.send({Message: "email is already taken!", Value: false});
         }
+    }).catch(err => {
+      console.log(err)
     })
 })
 

@@ -8,7 +8,7 @@ exports.connect = function() {
 conn = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : 'root',
   database : 'party'
 });
 
@@ -24,10 +24,14 @@ conn.connect(function(err) {
 });}
 
 exports.getData = function(query, param){
+  
   return new Promise((resolve, reject) => {
+    console.log(query);
     conn.query(query, param, (error, result) => {
-      if(error)
+      if(error) {
+        console.log(error)
         reject(error);
+      }
       else
       {
         resolve(result);
